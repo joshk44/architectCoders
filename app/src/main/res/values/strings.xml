@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">architectcoders</string>
+    <string name="fuel_type">Fuel type:</string>
+    <string name="error">Oooops something went wrong…</string>
+</resources>

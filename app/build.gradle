@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.joseferreyra.architectcoders"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":interactor"))
+    implementation(project(":common"))
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$androidx_core_ktx"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    implementation "com.jakewharton.threetenabp:threetenabp:$three_ten_abp"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-ext:$koin_version"
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    testImplementation "junit:junit:$junit"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_kotlin"
+    testImplementation "org.mockito:mockito-inline:$mockito_inline"
+    testImplementation 'org.mockito:mockito-core:4.3.1'
+    testImplementation "androidx.arch.core:core-testing:$core_testing"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinx_coroutines_test"
+
+    androidTestImplementation "androidx.test.ext:junit:$test_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
+
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+}

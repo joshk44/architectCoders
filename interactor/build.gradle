@@ -1,0 +1,30 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    implementation(project(":common"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
+
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    implementation "com.jakewharton.threetenabp:threetenabp:$three_ten_abp"
+    implementation 'junit:junit:4.13.2'
+
+    testImplementation "junit:junit:$junit"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_kotlin"
+    testImplementation "org.mockito:mockito-inline:$mockito_inline"
+    testImplementation "androidx.arch.core:core-testing:$core_testing"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinx_coroutines_test"
+    testImplementation "com.jakewharton.threetenabp:threetenabp:$three_ten_abp"
+
+}
